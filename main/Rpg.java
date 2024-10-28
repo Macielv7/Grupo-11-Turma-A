@@ -98,7 +98,7 @@ public class Rpg {
                 case 5:
                     System.out.println("Você escolheu a opção Sair");
                     Thread.sleep(1000);
-                    System.out.println("Tem certeza ue desejar sair do jogo? (SIm/Não)");
+                    System.out.println("Tem certeza que desejar sair do jogo? (SIm/Não)");
                     String confirmação6 = entrada.next(); 
                     Thread.sleep(800);
                     
