@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-public class Rpg {
+public class Rpg {  
+
 
     public static void main(String[] args) throws InterruptedException {
         Scanner entrada = new Scanner(System.in);
@@ -10,6 +11,8 @@ public class Rpg {
         System.out.println("A lamina dos Desafios! ");
 
         Thread.sleep(1000);
+
+        
 
         do {
             System.out.println("1 - Jogar");
@@ -161,7 +164,6 @@ public class Rpg {
     }
 
     private static void Instrução() {
-
     }
 
     private static void creditos() {
