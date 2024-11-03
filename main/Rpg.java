@@ -1,10 +1,10 @@
-
 import java.util.Scanner;
 
 public class Rpg {
+
     public static void main(String[] args) throws InterruptedException {
         Scanner entrada = new Scanner(System.in);
-        
+
         int opcao;
 
         System.out.println("A lamina dos Desafios! ");
@@ -43,6 +43,7 @@ public class Rpg {
                         System.out.println("Inciando o jogo... // tocar video em popup");
                         Thread.sleep(800);
                         jogo();
+                        criarPersonagem(entrada);
                     } else {
                         System.out.println("Retornando ao Menu Inicial... ");
                     }
@@ -99,10 +100,10 @@ public class Rpg {
                     System.out.println("Você escolheu a opção Sair");
                     Thread.sleep(1000);
                     System.out.println("Tem certeza que desejar sair do jogo? (SIm/Não)");
-                    String confirmação6 = entrada.next(); 
+                    String confirmação6 = entrada.next();
                     Thread.sleep(800);
-                    
-                    if(confirmação6.equalsIgnoreCase("sim")){
+
+                    if (confirmação6.equalsIgnoreCase("sim")) {
                         sair();
                         opcao = 6;
                     } else {
@@ -121,60 +122,40 @@ public class Rpg {
         entrada.close();
     }
 
-   
-    private static void jogo() throws InterruptedException {
-        Scanner jogo1 = new Scanner (System.in);
+    private static void jogo() {
 
-        System.out.print("A ");
-        Thread.sleep(300);
-        System.out.print("L");
-        Thread.sleep(300);
-        System.out.print("A");
-        Thread.sleep(300);
-        System.out.print("M");
-        Thread.sleep(300);
-        System.out.print("I");
-        Thread.sleep(300);
-        System.out.print("N");
-        Thread.sleep(300);
-        System.out.print("A ");
-        Thread.sleep(300);
-
-        System.out.print("D");
-        Thread.sleep(300);
-        System.out.print("O");
-        Thread.sleep(300);
-        System.out.print("S ");
-        Thread.sleep(300);
-        System.out.print("D");
-        Thread.sleep(300);
-        System.out.print("E");
-        Thread.sleep(300);
-        System.out.print("S");
-        Thread.sleep(300);
-        System.out.print("A");
-        Thread.sleep(300);
-        System.out.print("F");
-        Thread.sleep(300);
-        System.out.print("I");
-        Thread.sleep(300);
-        System.out.print("O");
-        Thread.sleep(300);
-        System.out.print("S ");
-        Thread.sleep(300);
-
-        sid();
-
-
-    
     }
 
+    private static void criarPersonagem(Scanner input) {
+        System.out.println("Você deseja criar um personagem masculino ou feminino? (M/F)");
+        char genero = input.next().charAt(0);
 
+        System.out.println("Digite o nome do seu personagem:");
+        String nome = input.next();
 
-    private static void sid() {
-        System.out.println("yes");
+        System.out.println("Escolha uma habilidade inicial para " + nome + ":");
+        System.out.println("1. Força Aumentada");
+        System.out.println("2. Agilidade Rápida");
+        System.out.println("3. Inteligência Brilhante");
+
+        int habilidadeEscolhida = input.nextInt();
+        switch (habilidadeEscolhida) {
+            case 1:
+                System.out.println("Força Aumentada");
+                break;
+            case 2:
+                System.out.println("Agilidade Rápida");
+                break;
+            case 3:
+                System.out.println("Inteligência Brilhante");
+                break;
+            default:
+                System.out.println("Habilidade inválida, nenhuma habilidade adicionada.");
+        }
+
+        System.out.println("Personagem criado: " + nome + " (Gênero: " + (genero == 'M' ? "Masculino" : "Feminino")
+                + ", Habilidade: " + habilidadeEscolhida + ")");
     }
-
 
     private static void modox1() {
     }
@@ -187,10 +168,8 @@ public class Rpg {
 
     }
 
-    private static void sair(){
+    private static void sair() {
         System.out.println("Saindo... Até a proxima");
-    } 
-
-
+    }
 
 }
