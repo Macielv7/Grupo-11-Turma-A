@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
-public class Rpg {  
-
-
+public class Rpg {
     public static void main(String[] args) throws InterruptedException {
         Scanner entrada = new Scanner(System.in);
 
@@ -36,9 +34,7 @@ public class Rpg {
             opcao = entrada.nextInt();
             switch (opcao) {
                 case 1:
-                    System.out.println("Você escolheu a opção Jogar");
-                    Thread.sleep(1000);
-                    System.out.println("Deseja Prosseguir para Jogar? (Sim/Não)");
+                    System.out.println("Deseja iniciar o Jogo? (Sim/Não)");
                     Thread.sleep(800);
                     String confirmação = entrada.next();
 
@@ -46,7 +42,6 @@ public class Rpg {
                         System.out.println("Inciando o jogo... // tocar video em popup");
                         Thread.sleep(800);
                         jogo();
-                        criarPersonagem(entrada);
                     } else {
                         System.out.println("Retornando ao Menu Inicial... ");
                     }
@@ -55,17 +50,9 @@ public class Rpg {
                 case 2:
                     System.out.println("Você escolheu a opção Instruções");
                     Thread.sleep(1000);
-                    System.out.println("Deseja Prosseguir para Instruções? (Sim/Não)");
-                    String confirmação2 = entrada.next();
+                    System.out.println("Abrindo o menu de Instrução de Jogo... ");
                     Thread.sleep(800);
-
-                    if (confirmação2.equalsIgnoreCase("sim")) {
-                        System.out.println("Abrindo o menu de Instrução de Jogo... ");
-                        Instrução();
-                    } else {
-                        System.out.println("Retornando ao Menu Inicial... ");
-                    }
-
+                    Instrução();
                     break;
 
                 case 3:
@@ -87,16 +74,9 @@ public class Rpg {
                 case 4:
                     System.out.println("Você escolheu a opção de Créditos");
                     Thread.sleep(1000);
-                    System.out.println("Deseja Prosseguir para os Créditos? (Sim/Não)");
-                    String confirmação5 = entrada.next();
+                    System.out.println("Abrindo os Créditos... ");
                     Thread.sleep(800);
-
-                    if (confirmação5.equalsIgnoreCase("sim")) {
-                        System.out.println("Abrindo os Créditos... ");
-                        creditos();
-                    } else {
-                        System.out.println("Retornando ao Menu Inicial... ");
-                    }
+                    creditos();
                     break;
 
                 case 5:
@@ -125,40 +105,195 @@ public class Rpg {
         entrada.close();
     }
 
-    private static void jogo() {
+    private static void jogo() throws InterruptedException {
+        Scanner jogo1 = new Scanner (System.in);
 
+        System.out.print("         A ");
+        Thread.sleep(300);
+        System.out.print("L");
+        Thread.sleep(300);
+        System.out.print("A");
+        Thread.sleep(300);
+        System.out.print("M");
+        Thread.sleep(300);
+        System.out.print("I");
+        Thread.sleep(300);
+        System.out.print("N");
+        Thread.sleep(300);
+        System.out.print("A ");
+        Thread.sleep(300);
+
+        System.out.print("D");
+        Thread.sleep(300);
+        System.out.print("O");
+        Thread.sleep(300);
+        System.out.print("S ");
+        Thread.sleep(300);
+        System.out.print("D");
+        Thread.sleep(300);
+        System.out.print("E");
+        Thread.sleep(300);
+        System.out.print("S");
+        Thread.sleep(300);
+        System.out.print("A");
+        Thread.sleep(300);
+        System.out.print("F");
+        Thread.sleep(300);
+        System.out.print("I");
+        Thread.sleep(300);
+        System.out.print("O");
+        Thread.sleep(300);
+        System.out.println("S           ");
+        Thread.sleep(300);
+
+        //inicio da historia
+
+        criarPersonagem();
+
+
+        jogo1.close();
+        
     }
-
-    private static void criarPersonagem(Scanner input) {
-        System.out.println("Você deseja criar um personagem masculino ou feminino? (M/F)");
-        char genero = input.next().charAt(0);
-
-        System.out.println("Digite o nome do seu personagem:");
-        String nome = input.next();
-
-        System.out.println("Escolha uma habilidade inicial para " + nome + ":");
-        System.out.println("1. Força Aumentada");
-        System.out.println("2. Agilidade Rápida");
-        System.out.println("3. Inteligência Brilhante");
-
-        int habilidadeEscolhida = input.nextInt();
-        switch (habilidadeEscolhida) {
-            case 1:
-                System.out.println("Força Aumentada");
-                break;
-            case 2:
-                System.out.println("Agilidade Rápida");
-                break;
-            case 3:
-                System.out.println("Inteligência Brilhante");
-                break;
-            default:
-                System.out.println("Habilidade inválida, nenhuma habilidade adicionada.");
+    private static void criarPersonagem() throws InterruptedException {
+            Scanner en = new Scanner(System.in);
+            int opçãopersonagem;
+            String nomeRPG = "";
+            String generoRPG = "";
+            String classeRPG = "";
+            String classe1 = "Guerreiro";
+            String classe2 = "Mago";
+            String classe3 = "Arqueiro";
+            int nomewhile = 0;
+            int generowhile = 0;
+            int classewhile = 0;
+    
+            System.out.println("Criação de Personagem: ");
+            Thread.sleep(1000);
+            do {
+                System.out.println("Opções: ");
+                Thread.sleep(200);
+                System.out.println("1 - Nome ");
+                Thread.sleep(200);
+                System.out.println("2 - Genero ");
+                Thread.sleep(200);
+                System.out.println("3 - Classe ");
+                Thread.sleep(200);
+                opçãopersonagem = en.nextInt();
+    
+                switch (opçãopersonagem) {
+                    case 1:
+                        System.out.println("Digite o nome para o seu personagem: ");
+                        Thread.sleep(200);
+                        nomeRPG = en.next();
+                        System.out.println("Seu nome será " + nomeRPG + ", Deseja salvar? Sim/Não");
+                        Thread.sleep(200);
+                        String opc = en.next();
+                        if (opc.equalsIgnoreCase("Sim")) {
+                            System.out.println("Nome salvo... ");
+                            nomewhile = 1;
+                        } else {
+                            System.out.println("Retornando ao menu de opções de personagem... ");
+                        }
+    
+                        classewhile = nomewhile + generowhile;
+    
+                        break;
+                    case 2:
+                        System.out.println("Escolha um genêro para o seu personagem: ");
+                        Thread.sleep(200);
+                        generoRPG = en.next();
+                        System.out.println(nomeRPG + ", o genêro do seu persnoagem será: " + generoRPG + " Deseja salvar? Sim/Não");
+                        Thread.sleep(200);
+                        String opc1 = en.next();
+                        if (opc1.equalsIgnoreCase("Sim")) {
+                            System.out.println("Genêro salvo... ");
+                        } else {
+                            System.out.println("Retornando ao menu de opções de personagem... ");
+                        }
+                        generowhile = 5;
+    
+                        classewhile = nomewhile + generowhile;
+    
+                        break;
+                    case 3:
+                        System.out.println("Escolha uma classe para o seu personagem: ");
+                        Thread.sleep(200);
+    
+                        System.out.println("1 - Guerreiro ");
+                        Thread.sleep(200);
+                        
+                        System.out.println("2 - Mago ");
+                        Thread.sleep(200);
+                       
+                        System.out.println("3 - Arqueiro ");
+                        Thread.sleep(200);
+                        
+                        classeRPG = en.next();
+                        String opccl;
+    
+                        if (classeRPG.equalsIgnoreCase("1")) {
+                            
+                            System.out.println(nomeRPG + ", Sua classe é Guerreiro, Deseja salvar? Sim/Não");
+                            opccl = en.next();
+                            
+                            if (opccl.equalsIgnoreCase("Sim")) {
+                                System.out.println("Classe Salva... ");
+                                
+                                classeRPG = classe1;
+                                
+                                classewhile = nomewhile + generowhile + 1;
+                               
+                            }
+                        } else if (classeRPG.equalsIgnoreCase("2")) {
+                           
+                            System.out.println(nomeRPG + ", Sua classe é Mago, Deseja salvar? Sim/Não");
+                            opccl = en.next();
+                           
+                            if (opccl.equalsIgnoreCase("sim")) {
+                                System.out.println("Classe Salva... ");
+                                
+                                classeRPG = classe2;
+                                
+                                classewhile = nomewhile + generowhile + 1;
+                                
+                            }
+                        } else if (classeRPG.equalsIgnoreCase("3")) {
+                           
+                            System.out.println(nomeRPG + ", Sua classe é Arqueiro, Deseja salvar? Sim/Não");
+                            opccl = en.next();
+                            
+                            if (opccl.equalsIgnoreCase("Sim")) {
+                                System.out.println("Classe Salva... ");
+    
+                                classeRPG = classe3;
+    
+                                classewhile = nomewhile + generowhile + 1;
+    
+                            } else {
+                                System.out.println("Retornando ao menu... ");
+                            }
+    
+                        } else {
+                           
+                            System.out.println("Escolha uma opção válida.");
+                        }
+    
+                        break;
+                    default:
+                      
+                        System.out.println("Opção invalida... ");
+                        break;
+                }
+    
+            } while (classewhile != 7);
+    
+            System.out.println("Personagem criado: " + nomeRPG + ", " + generoRPG + ", " + classeRPG);
+    en.close();
         }
+    
+    
 
-        System.out.println("Personagem criado: " + nome + " (Gênero: " + (genero == 'M' ? "Masculino" : "Feminino")
-                + ", Habilidade: " + habilidadeEscolhida + ")");
-    }
+
 
     private static void modox1() {
     }
