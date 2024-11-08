@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Rpg {
@@ -142,6 +141,7 @@ public class Rpg {
 
         criarPersonagem(entrada);
         FlorestaDasAlmas(entrada);
+        CavernaDoFogo(entrada);
     }
 
     private static void criarPersonagem(Scanner entrada) throws InterruptedException {
@@ -284,6 +284,54 @@ public class Rpg {
             System.out.println("Você sente sua vida se esvaindo... Game Over.");
         }
     }    
+
+   
+    public static void CavernaDoFogo(Scanner entrada) throws InterruptedException {
+        System.out.println();
+        System.out.println("Você entra na Caverna do Fogo, onde duas criaturas flamejantes bloqueiam seu caminho.");
+        Thread.sleep(1000);
+
+        // Primeiro vilão de fogo
+        System.out.println();
+        System.out.println("A primeira figura surge das sombras ardentes. Seu nome é **Pyron, o Guardião das Chamas Eternas**.");
+        System.out.println("Pyron observa você com olhos de fogo e diz: 'Somente aqueles que conhecem o equilíbrio dos elementos podem passar.'");
+        System.out.println("Ele sorri friamente: 'Responda-me, ou sinta o calor das chamas! Qual elemento é o oposto do fogo?'");
+        System.out.println("1 - Água");
+        System.out.println("2 - Terra");
+        System.out.println("3 - Ar");
+        System.out.println("4 - Luz");
+
+        System.out.print("Digite o número da sua escolha (1, 2, 3 ou 4): ");
+        int escolha = entrada.nextInt();
+
+        if (escolha == 1) {
+            System.out.println("Resposta correta! Pyron se dissipa em cinzas, liberando seu caminho.");
+        } else {
+            System.out.println("Resposta errada! Pyron exala uma labareda intensa... Você foi queimado! Game Over.");
+            return;
+        }
+        Thread.sleep(800);
+
+        // Segundo vilão de fogo
+        System.out.println();
+        System.out.println("Atravessando as cinzas de Pyron, você encontra **Ignis, o Mestre das Chamas Vivas**.");
+        System.out.println("Ignis, com uma presença imponente, diz: 'Você passou por Pyron, mas eu sou o verdadeiro teste.'");
+        System.out.println("Ele observa você intensamente e pergunta: 'Qual metal resiste ao calor mais intenso?'");
+        System.out.println("1 - Ferro");
+        System.out.println("2 - Prata");
+        System.out.println("3 - Ouro");
+        System.out.println("4 - Titânio");
+
+        System.out.print("Digite o número da sua escolha (1, 2, 3 ou 4): ");
+        escolha = entrada.nextInt();
+
+        if (escolha == 4) {
+            System.out.println("Resposta correta! Ignis dá um passo para trás, admitindo sua derrota.");
+            System.out.println("Parabéns, você passou pelos desafios da Caverna do Fogo!");
+        } else {
+            System.out.println("Resposta errada! Ignis faz as chamas engolirem o chão ao seu redor... Game Over.");
+        }
+    }
 
     private static void modox1() {
     }
