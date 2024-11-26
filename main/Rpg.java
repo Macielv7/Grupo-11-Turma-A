@@ -283,14 +283,60 @@ public class Rpg {
         }
     }
    
-   
-   
-   
-   
-   
-   
-   
-    private static void modox1() {
+    public static boolean perguntaCenario(Scanner entrada) {
+        // Sorteia uma pergunta
+        Random rand = new Random();
+        int perguntaEscolhidaIndex = rand.nextInt(perguntasAlternativasRespostas.size());
+        String[] perguntaEscolhida = perguntasAlternativasRespostas.get(perguntaEscolhidaIndex);
+
+        // Exibe a pergunta e as alternativas
+        System.out.println(perguntaEscolhida[0]);
+        System.out.println(perguntaEscolhida[1]);
+
+        // Obtém a resposta do jogador
+        String resposta = entrada.next();
+
+        // Verifica se a resposta está correta
+        if (resposta.equalsIgnoreCase(perguntaEscolhida[2])) {
+            System.out.println("Resposta correta!");
+            perguntasAlternativasRespostas.remove(perguntaEscolhidaIndex); // Remove a pergunta após ser respondida
+            return true;
+        } else {
+            System.out.println("Resposta errada! O correto era: " + perguntaEscolhida[2]);
+            return false;
+        }
+    }
+
+    private static void inicializarPerguntas() {
+        perguntasAlternativasRespostas.add(new String[]{
+            "Qual seria a forma correta de declarar uma variável inteira chamada 'idade' e atribuir o valor 25 a ela?",
+            "a) int idade = 25;\nb) idade = 25;\nc) 25 = idade;\nd) int 25 = idade;",
+            "a"
+        });
+        perguntasAlternativasRespostas.add(new String[]{
+            "Como você imprimiria a frase 'Olá, mundo!' na tela?",
+            "a) print \"Olá, mundo!\";\nb) System.out.println(\"Olá, mundo!\");\nc) Console.WriteLine(\"Olá, mundo!\");\nd) Mostrar(\"Olá, mundo!\");",
+            "b"
+        });
+        perguntasAlternativasRespostas.add(new String[]{
+            "Qual seria a forma correta de criar um loop que se repete 10 vezes?",
+            "a) for (int i = 0; i < 10; i++) { ... }\nb) while (i < 10) { ... }\nc) repeat 10 times { ... }\nd) loop 10 { ... }",
+            "a"
+        });
+        perguntasAlternativasRespostas.add(new String[]{
+            "Como você verificaria se um número armazenado na variável 'numero' é maior que 10?",
+            "a) if numero > 10\nb) if (numero > 10)\nc) if numero = 10\nd) if (numero < 10)",
+            "b"
+        });
+        perguntasAlternativasRespostas.add(new String[]{
+            "Qual seria a forma correta de criar um array de 5 elementos do tipo inteiro?",
+            "a) int[] numeros = new int[5];\nb) array numeros[5];\nc) int numeros[5] = {1, 2, 3, 4, 5};\nd) int[] numeros = {1, 2, 3, 4, 5};",
+            "a"
+        });
+        // Adicione as outras perguntas aqui, conforme necessário...
+    }
+
+   private static void modox1() {
         System.out.println("Em Desenvolvimento...");
     }
 
