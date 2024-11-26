@@ -1,7 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Rpg {
+    
+    // Lista de perguntas globais para todos os cenários
+    private static List<String[]> perguntasAlternativasRespostas = new ArrayList<>();
+    
     public static void main(String[] args) throws InterruptedException {
+        // Preencher a lista de perguntas
+        inicializarPerguntas();
+        
         Scanner entrada = new Scanner(System.in);
 
         int opcao;
@@ -217,198 +227,37 @@ public class Rpg {
     }
 
     public static void FlorestaDasAlmas(Scanner entrada) throws InterruptedException {
-        System.out.println();
-        System.out.println("Após criar coragem, você adentra a sombria **Floresta das Almas**.");
+        System.out.println("Você entrou na Floresta das Almas...");
         Thread.sleep(1000);
-        System.out.println("Árvores torcidas como garras parecem observar cada movimento seu.");
-        Thread.sleep(1000);
-        System.out.println("Lamentos ecoam entre as folhas, e uma névoa densa cobre o chão, escondendo perigos desconhecidos.");
-        Thread.sleep(1000);
-        System.out.println("Uma voz misteriosa sussurra: 'Muitos entram aqui em busca de respostas, mas poucos saem com vida...'");
-        Thread.sleep(1000);
-        
-        System.out.println();
-        System.out.println("Pergunta: Qual é o número de almas perdidas na Floresta?");
-        System.out.println("Escolha uma opção:");
-        System.out.println("1 - 13 almas");
-        System.out.println("2 - 42 almas");
-        System.out.println("3 - 66 almas");
-        System.out.println("4 - 99 almas");
-    
-        System.out.print("Digite o número da sua escolha (1, 2, 3 ou 4): ");
-        int escolha = entrada.nextInt();
-    
-        if (escolha == 3) {
-            System.out.println();
-            System.out.println("O fantasma gargalha: Você é esperto, aventureiro! A resposta está correta!");
-            System.out.println("Você sobreviveu e recebeu um amuleto das almas como recompensa.");
-            Thread.sleep(300);
-    
-            int tentativas = 3; 
-            boolean acertou = false;
-            System.out.println();
-            System.out.println("Após você passar do fantasma, um caminho se abre!");
-            System.out.println("Você se encontra na sombria Caverna dos Mistérios");
-            System.out.println("Na parede, há uma inscrição enigmática que parece ativar uma armadilha se você errar a resposta!");
-            System.out.println("A inscrição diz: 'Para sobreviver, diga-me: Qual número nunca aumenta nem diminui?'");
-            System.out.println();
-            // Laço do/while para permitir tentativas múltiplas até acertar ou perder todas as vidas
-            do {
-                System.out.println();
-                System.out.println("Escolha uma opção:");
-                System.out.println("1 - Zero");
-                System.out.println("2 - Um");
-                System.out.println("3 - Infinito");
-                System.out.println("4 - Nada");
-                System.out.println();
-
-                System.out.print("Digite o número da sua escolha (1, 2, 3 ou 4): ");
-                escolha = entrada.nextInt();
-    
-                if (escolha == 1) {
-                    System.out.println();
-                    System.out.println("Você acertou! A resposta é zero.");
-                    System.out.println("A armadilha se desativa, e você continua sua jornada!");
-                    acertou = true;
-                    System.out.println();
-                } else {
-                    tentativas--;
-                    System.out.println();
-                    System.out.println("Resposta incorreta! A inscrição brilha intensamente... cuidado!");
-                    if (tentativas > 0) {
-                        System.out.println();
-                        System.out.println("Você tem mais " + tentativas + " tentativa(s) restante(s).");
-                    } else {
-                        System.out.println();
-                        System.out.println("A armadilha é ativada! Você foi pego e não sobreviveu... Game Over.");
-                    }
-                }
-    
-            } while (!acertou && tentativas > 0);
-    
+        if (perguntaCenario(entrada)) {
+            System.out.println("Você passou da Floresta das Almas!");
+            Thread.sleep(1000);
+            CavernaDoFogo(entrada);
         } else {
-            System.out.println("A caveira se enfurece: Resposta errada! Agora você pertence à Floresta das Almas!");
-            System.out.println("Você sente sua vida se esvaindo... Game Over.");
-        }
-    } 
-
-    public static void ReinoDaCaveira(Scanner entrada) throws InterruptedException {
-        System.out.println();
-        System.out.println("Após atravessar a sombria Caverna dos Mistérios, você chega a um lugar ainda mais aterrorizante...");
-        System.out.println("Bem-vindo ao **Reino da Caveira**.");
-        Thread.sleep(1000);
-        System.out.println("Esse reino é governado pela escuridão, onde os mortos sussurram seus segredos e os vivos raramente sobrevivem.");
-        Thread.sleep(1000);
-        System.out.println("A névoa que cobre o chão parece sussurrar seu nome. Você sente que apenas os mais inteligentes e corajosos conseguem sair daqui com vida.");
-        Thread.sleep(1000);
-        System.out.println("Uma voz profunda e sombria ecoa no ar: 'Aventureiro, sua jornada está longe de terminar. Enfrente nossos desafios, ou junte-se a nós para sempre...'");
-        Thread.sleep(1500);
-
-        System.out.println();
-        System.out.println("Primeiro Desafio: Você encontra **Karron, o Esqueleto do Portal**.");
-        System.out.println("Karron pergunta: 'Quantos ossos existem no corpo humano adulto?'");
-        System.out.println("1 - 206");
-        System.out.println("2 - 210");
-        System.out.println("3 - 199");
-        System.out.println("4 - 220");
-
-        System.out.print("Digite o número da sua escolha (1, 2, 3 ou 4): ");
-        int escolha = entrada.nextInt();
-
-        if (escolha == 1) {
-            System.out.println("Resposta correta! Karron abre o portal para você prosseguir.");
-        } else {
-            System.out.println("Resposta errada! Karron ri enquanto o portal se fecha. Game Over.");
-            return;
-        }
-        Thread.sleep(800);
-
-        System.out.println();
-        System.out.println("Segundo Desafio: Você encontra **Mortis, o Senhor das Almas Perdidas**.");
-        System.out.println("Mortis, com um sorriso macabro, diz: 'Vamos ver se você é esperto o suficiente para passar por mim!'");
-        System.out.println("Ele propõe um enigma mortal: 'Tenho cidades, mas sem casas; montanhas, mas sem árvores; rios, mas sem água. O que sou?'");
-        System.out.println("1 - Um mapa");
-        System.out.println("2 - Uma ilusão");
-        System.out.println("3 - Um sonho");
-        System.out.println("4 - Uma sombra");
-
-        int vidas = 3;
-        boolean acertou = false;
-
-        do {
-            System.out.print("Digite o número da sua escolha (1, 2, 3 ou 4): ");
-            escolha = entrada.nextInt();
-
-            if (escolha == 1) {
-                System.out.println("Resposta correta! Mortis desaparece em uma névoa negra, liberando o caminho.");
-                acertou = true;
-            } else {
-                vidas--;
-                if (vidas > 0) {
-                    System.out.println("Resposta errada! Mortis ri macabramente. Você tem " + vidas + " vida(s) restante(s).");
-                } else {
-                    System.out.println("Resposta errada! Mortis consome sua alma... Game Over.");
-                }
-            }
-        } while (!acertou && vidas > 0);
-
-        if (acertou) {
-            System.out.println("Parabéns! Você venceu os desafios do Reino da Caveira.");
+            System.out.println("Você falhou na Floresta das Almas! Fim de jogo.");
         }
     }
 
-   
     public static void CavernaDoFogo(Scanner entrada) throws InterruptedException {
-        System.out.println();
-        System.out.println("Após superar os desafios anteriores, você chega à **Planície de Fogo**, um lugar onde o calor é quase insuportável.");
+        System.out.println("Você entrou na Caverna do Fogo...");
         Thread.sleep(1000);
-        System.out.println("O solo está coberto de cinzas e brasas, e o ar cheira a enxofre.");
-        Thread.sleep(1000);
-        System.out.println("Rios de lava cortam a paisagem, e rajadas de fogo dançam ao vento, como se quisessem testar sua coragem.");
-        Thread.sleep(1000);
-        System.out.println("Você sente que cada passo é observado por algo maligno escondido nas chamas.");
-        Thread.sleep(1500);
-    
-        System.out.println("Uma voz ecoa pelo ar: 'Bem-vindo, mortal! Para atravessar este inferno, você deve provar seu valor.'");
-        Thread.sleep(1500);
-
-        System.out.println();
-        System.out.println("A primeira figura surge das sombras ardentes. Seu nome é **Pyron, o Guardião das Chamas Eternas**.");
-        System.out.println("Pyron observa você com olhos de fogo e diz: 'Somente aqueles que conhecem o equilíbrio dos elementos podem passar.'");
-        System.out.println("Ele sorri friamente: 'Responda-me, ou sinta o calor das chamas! Qual elemento é o oposto do fogo?'");
-        System.out.println("1 - Água");
-        System.out.println("2 - Terra");
-        System.out.println("3 - Ar");
-        System.out.println("4 - Luz");
-
-        System.out.print("Digite o número da sua escolha (1, 2, 3 ou 4): ");
-        int escolha = entrada.nextInt();
-
-        if (escolha == 1) {
-            System.out.println("Resposta correta! Pyron se dissipa em cinzas, liberando seu caminho.");
+        if (perguntaCenario(entrada)) {
+            System.out.println("Você passou pela Caverna do Fogo!");
+            Thread.sleep(1000);
+            ReinoDaCaveira(entrada);
         } else {
-            System.out.println("Resposta errada! Pyron exala uma labareda intensa... Você foi queimado! Game Over.");
-            return;
+            System.out.println("Você falhou na Caverna do Fogo! Fim de jogo.");
         }
-        Thread.sleep(800);
-
-        System.out.println();
-        System.out.println("Atravessando as cinzas de Pyron, você encontra **Ignis, o Mestre das Chamas Vivas**.");
-        System.out.println("Ignis, com uma presença imponente, diz: 'Você passou por Pyron, mas eu sou o verdadeiro teste.'");
-        System.out.println("Ele observa você intensamente e pergunta: 'Qual metal resiste ao calor mais intenso?'");
-        System.out.println("1 - Ferro");
-        System.out.println("2 - Prata");
-        System.out.println("3 - Ouro");
-        System.out.println("4 - Titânio");
-
-        System.out.print("Digite o número da sua escolha (1, 2, 3 ou 4): ");
-        escolha = entrada.nextInt();
-
-        if (escolha == 4) {
-            System.out.println("Resposta correta! Ignis dá um passo para trás, admitindo sua derrota.");
-            System.out.println("Parabéns, você passou pelos desafios da Caverna do Fogo!");
+    }
+    public static void ReinoDaCaveira(Scanner entrada) throws InterruptedException {
+        System.out.println("Você entrou no Reino da Caveira...");
+        Thread.sleep(1000);
+        if (perguntaCenario(entrada)) {
+            System.out.println("Você passou pelo Reino da Caveira!");
+            Thread.sleep(1000);
+            ReinoDasSombrasDeNoxis(entrada);
         } else {
-            System.out.println("Resposta errada! Ignis faz as chamas engolirem o chão ao seu redor... Game Over.");
+            System.out.println("Você falhou no Reino da Caveira! Fim de jogo.");
         }
     }
 
