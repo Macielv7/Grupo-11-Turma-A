@@ -261,6 +261,35 @@ public class Rpg {
         }
     }
 
+    public static void ReinoDasSombrasDeNoxis(Scanner entrada) throws InterruptedException {
+        System.out.println("Você entrou no Reino das Sombras de Noxis...");
+        Thread.sleep(1000);
+        if (perguntaCenario(entrada)) {
+            System.out.println("Você passou pelo Reino das Sombras de Noxis!");
+            Thread.sleep(1000);
+            BatalhaFinalContraLordeKael(entrada);
+        } else {
+            System.out.println("Você falhou no Reino das Sombras de Noxis! Fim de jogo.");
+        }
+    }
+
+    public static void BatalhaFinalContraLordeKael(Scanner entrada) throws InterruptedException {
+        System.out.println("Você chegou à batalha final contra o Lorde Kael...");
+        Thread.sleep(1000);
+        if (perguntaCenario(entrada)) {
+            System.out.println("Você venceu a batalha final contra o Lorde Kael! Vitória!");
+        } else {
+            System.out.println("Você falhou na batalha final contra o Lorde Kael! Fim de jogo.");
+        }
+    }
+   
+   
+   
+   
+   
+   
+   
+   
     private static void modox1() {
         System.out.println("Em Desenvolvimento...");
     }
