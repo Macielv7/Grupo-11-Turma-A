@@ -47,7 +47,7 @@ public class Rpg {
                     String confirmacao = entrada.next();
 
                     if (confirmacao.equalsIgnoreCase("sim")) {
-                        System.out.println("Iniciando o jogo... // tocar video em popup");
+                        System.out.println("Iniciando o jogo...");
                         Thread.sleep(800);
                         jogo(entrada);
                     } else {
@@ -227,59 +227,149 @@ public class Rpg {
     }
 
     public static void FlorestaDasAlmas(Scanner entrada) throws InterruptedException {
-        System.out.println("Você entrou na Floresta das Almas...");
-        Thread.sleep(1000);
-        if (perguntaCenario(entrada)) {
-            System.out.println("Você passou da Floresta das Almas!");
+            System.out.println();
+            System.out.println("Você se aventura na sombria Floresta das Almas...");
             Thread.sleep(1000);
+            System.out.println("Uma caveira misteriosa aparece na sua frente, bloqueando seu caminho!");
+            Thread.sleep(1000);
+            System.out.println("A caveira sussurra: 'Para passar, aventureiro, responda corretamente minha pergunta... ou pereça!'");
+            Thread.sleep(1000);
+            System.out.println("Após criar coragem, você adentra a sombria **Floresta das Almas**.");
+            Thread.sleep(1000);
+            System.out.println("Árvores torcidas como garras parecem observar cada movimento seu.");
+            Thread.sleep(1000);
+            System.out.println("Lamentos ecoam entre as folhas, e uma névoa densa cobre o chão, escondendo perigos desconhecidos.");
+            Thread.sleep(1000);
+            System.out.println("Uma voz misteriosa sussurra: 'Muitos entram aqui em busca de respostas, mas poucos saem com vida...'");
+            Thread.sleep(1000);
+        if (perguntaCenario(entrada)) {
+            System.out.println("A caveira gargalha: Você é esperto, aventureiro! A resposta está correta!");
+            Thread.sleep(1000);
+            System.out.println("Assim abrindo espaço para seguir o seu caminho!");
             CavernaDoFogo(entrada);
         } else {
-            System.out.println("Você falhou na Floresta das Almas! Fim de jogo.");
+            System.out.println("A caveira se enfurece. Agora você pertence à Floresta das Almas!");
+            Thread.sleep(1000);
+            System.out.println("Você sente sua vida se esvaindo... Game Over.");
         }
     }
 
     public static void CavernaDoFogo(Scanner entrada) throws InterruptedException {
-        System.out.println("Você entrou na Caverna do Fogo...");
+        System.out.println();
+        System.out.println("Você entra na Caverna do Fogo, onde criaturas flamejantes bloqueiam seu caminho.");
+        Thread.sleep(1000);
+        System.out.println("O solo está coberto de cinzas e brasas, e o ar cheira a enxofre.");
+        Thread.sleep(1000);
+        System.out.println("Rios de lava cortam a paisagem, e rajadas de fogo dançam ao vento, como se quisessem testar sua coragem.");
+        Thread.sleep(1000);
+        System.out.println("Você sente que cada passo é observado por algo maligno escondido nas chamas.");
+        Thread.sleep(1000);
+    
+        System.out.println("Uma voz ecoa pelo ar: 'Bem-vindo, mortal! Para atravessar este inferno, você deve provar seu valor.'");
+        Thread.sleep(1000);
+
+        System.out.println();
+        System.out.println("A primeira figura surge das sombras ardentes. Seu nome é Pyron, o Guardião das Chamas Eternas.");
         Thread.sleep(1000);
         if (perguntaCenario(entrada)) {
-            System.out.println("Você passou pela Caverna do Fogo!");
+            System.out.println("Pyron se dissipa em cinzas, liberando seu caminho.");
             Thread.sleep(1000);
             ReinoDaCaveira(entrada);
         } else {
-            System.out.println("Você falhou na Caverna do Fogo! Fim de jogo.");
+            System.out.println("Pyron exala uma labareda intensa... Você foi queimado! Game Over.");
         }
     }
     public static void ReinoDaCaveira(Scanner entrada) throws InterruptedException {
-        System.out.println("Você entrou no Reino da Caveira...");
+        System.out.println();
+        System.out.println("Após atravessar a Caverna do Fogo, você chega a um lugar ainda mais aterrorizante...");
         Thread.sleep(1000);
+        System.out.println("Bem-vindo ao Reino da Caveira.");
+        Thread.sleep(1000);
+        System.out.println("Esse reino é governado pela escuridão, onde os mortos sussurram seus segredos e os vivos raramente sobrevivem.");
+        Thread.sleep(1000);
+        System.out.println("A névoa que cobre o chão parece sussurrar seu nome. Você sente que apenas os mais inteligentes e corajosos conseguem sair daqui com vida.");
+        Thread.sleep(1000);
+        System.out.println("Uma voz profunda e sombria ecoa no ar: 'Aventureiro, sua jornada está longe de terminar. Enfrente nossos desafios, ou junte-se a nós para sempre...'");
+        Thread.sleep(1000);
+        System.out.println();
+        System.out.println("Você encontra Karron, o Esqueleto do Portal.");
+        Thread.sleep(1000);
+
         if (perguntaCenario(entrada)) {
-            System.out.println("Você passou pelo Reino da Caveira!");
+            System.out.println("Karron abre o portal para você prosseguir.");
             Thread.sleep(1000);
             ReinoDasSombrasDeNoxis(entrada);
         } else {
-            System.out.println("Você falhou no Reino da Caveira! Fim de jogo.");
+            System.out.println("Karron ri enquanto o portal se fecha. Game Over.");
         }
     }
 
     public static void ReinoDasSombrasDeNoxis(Scanner entrada) throws InterruptedException {
-        System.out.println("Você entrou no Reino das Sombras de Noxis...");
+        System.out.println("Você entrou no Reino das Sombras de Noxis, onde a escuridão domina e a luz quase não existe...");
+        Thread.sleep(1000);
+        System.out.println("Este reino é habitado por criaturas feitas de pura sombra, e os ecos de almas perdidas sussurram segredos antigos.");
+        Thread.sleep(1000);
+
+        System.out.println();
+        System.out.println("Ao caminhar, você percebe que o ambiente muda. As sombras parecem ganhar vida, tentando puxar você para o vazio.");
+        Thread.sleep(1000);
+        System.out.println("De repente, surge uma presença poderosa e aterrorizante...");
+        Thread.sleep(1000);
+
+        System.out.println("Uma voz grave ecoa na escuridão: 'Aventureiro ousado, você ousa desafiar o poder das sombras?'");
+        Thread.sleep(1000);
+        System.out.println("Das trevas surge Noxis, o Mestre das Sombras Eternas, empunhando uma lâmina negra que parece absorver toda a luz ao redor.");
+        Thread.sleep(1000);
+
+        System.out.println();
+        System.out.println("Noxis aponta sua lâmina para você e diz: 'Se deseja passar por este reino, prove ser digno enfrentando meu enigma.'");
         Thread.sleep(1000);
         if (perguntaCenario(entrada)) {
-            System.out.println("Você passou pelo Reino das Sombras de Noxis!");
+            System.out.println("Você respondeu corretamente ao enigma de Noxis! Ele dá um passo para trás, permitindo que você passe.");
             Thread.sleep(1000);
             BatalhaFinalContraLordeKael(entrada);
         } else {
-            System.out.println("Você falhou no Reino das Sombras de Noxis! Fim de jogo.");
+            System.out.println("Você falhou e as sombras de Noxis te engolem completamente! Game Over.");
         }
     }
 
     public static void BatalhaFinalContraLordeKael(Scanner entrada) throws InterruptedException {
-        System.out.println("Você chegou à batalha final contra o Lorde Kael...");
+        System.out.println();
+        System.out.println("Você atravessa o portal deixado por Noxis e chega ao salão final...");
+        Thread.sleep(1000);
+        System.out.println("O lugar é dominado por um céu vermelho-sangue, e trovões ecoam ao longe.");
+        Thread.sleep(1000);
+
+        System.out.println("No centro do salão, um trono negro feito de ossos e sombras se ergue majestosamente.");
+        Thread.sleep(1000);
+        System.out.println("Sentado no trono está Lorde Kael, o Tirano das Trevas, com um olhar penetrante e uma aura de puro poder.");
+        Thread.sleep(1000);
+
+        System.out.println();
+        System.out.println("Lorde Kael se levanta lentamente, empunhando uma espada flamejante que parece irradiar energia destrutiva.");
+        Thread.sleep(1000);
+        System.out.println("Ele diz com uma voz profunda e ameaçadora: 'Aventureiro... Você chegou até aqui, mas sua jornada termina agora.'");
+        Thread.sleep(1000);
+
+        System.out.println("Ele ergue sua espada e o desafia: 'Se você deseja derrotar-me, prove sua sabedoria e força! Responda ao meu enigma.'");
         Thread.sleep(1000);
         if (perguntaCenario(entrada)) {
+            System.out.println();
+            System.out.println("Lorde Kael cai de joelhos, surpreso com sua vitória.");
+            Thread.sleep(1000);
+            System.out.println("'Impressionante... Você realmente possui a força e a sabedoria para me derrotar,' ele diz antes de desaparecer em uma explosão de luz.");
+            Thread.sleep(1000);
             System.out.println("Você venceu a batalha final contra o Lorde Kael! Vitória!");
+            System.out.println();
+            System.out.println("Após uma longa jornada, você finalmente derrotou o tirano Lorde Kael e trouxe a paz ao reino, voltando para seu lar.");
+            Thread.sleep(1000);
+            System.out.println("Obrigado por jogar 'A Lâmina dos Desafios'! Até a próxima aventura!");
+            Thread.sleep(1000);
         } else {
-            System.out.println("Você falhou na batalha final contra o Lorde Kael! Fim de jogo.");
+            System.out.println();
+            System.out.println("Lorde Kael ri maliciosamente: 'Patético! Sua fraqueza será sua ruína.'");
+            Thread.sleep(1000);
+            System.out.println("Ele desfere um golpe final devastador, e sua jornada chega ao fim... Fim de jogo.");
         }
     }
    
@@ -345,7 +435,10 @@ public class Rpg {
     }
 
     private static void creditos() {
-        System.out.println("Desenvolvido por Guilherme Rossi dos Santos,");
+        System.out.println("Desenvolvido por Guilherme Rossi dos Santos.");
+        System.out.println("Desenvolvido por Luan de Siqueira Oliveira.");
+        System.out.println("Desenvolvido por Lucas Gabriel da Silva.");
+        System.out.println("Desenvolvido por Maciel.");
     }
 
     private static void sair() {
