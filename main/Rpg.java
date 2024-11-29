@@ -184,7 +184,7 @@ public class Rpg {
         for (int i = 0; i < texto.length(); i++) {
             System.out.print(texto.charAt(i)); // Imprime um caractere por vez
             try {
-                Thread.sleep(150); // Pausa de 150 milissegundos entre cada caractere
+                Thread.sleep(80); // Pausa de 150 milissegundos entre cada caractere
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -257,7 +257,7 @@ public class Rpg {
         texto("Noxis aponta sua lâmina para você e diz: 'Se deseja passar por este reino, prove ser digno enfrentando meu enigma.'");
 
         if (perguntaCenario(entrada)) {
-            texto(    "Você respondeu corretamente ao enigma de Noxis! Ele dá um passo para trás, permitindo que você passe.");
+            texto("Você respondeu corretamente ao enigma de Noxis! Ele dá um passo para trás, permitindo que você passe.");
 
             BatalhaFinalContraLordeKael(entrada);
         } else {
@@ -266,7 +266,7 @@ public class Rpg {
     }
 
     public static void BatalhaFinalContraLordeKael(Scanner entrada) throws InterruptedException {
-        
+
         texto("Você atravessa o portal deixado por Noxis e chega ao salão final...");
         texto("O lugar é dominado por um céu vermelho-sangue, e trovões ecoam ao longe.");
         texto("No centro do salão, um trono negro feito de ossos e sombras se ergue majestosamente.");
@@ -277,9 +277,9 @@ public class Rpg {
 
         if (perguntaCenario(entrada)) {
             texto("Lorde Kael cai de joelhos, surpreso com sua vitória.");
-            texto(    "'Impressionante... Você realmente possui a força e a sabedoria para me derrotar,' ele diz antes de desaparecer em uma explosão de luz.");
+            texto("'Impressionante... Você realmente possui a força e a sabedoria para me derrotar,' ele diz antes de desaparecer em uma explosão de luz.");
             texto("Você venceu a batalha final contra o Lorde Kael! Vitória!");
-            texto(    "Após uma longa jornada, você finalmente derrotou o tirano Lorde Kael e trouxe a paz ao reino, voltando para seu lar.");
+            texto("Após uma longa jornada, você finalmente derrotou o tirano Lorde Kael e trouxe a paz ao reino, voltando para seu lar.");
             texto("Obrigado por jogar 'A Lâmina dos Desafios'! Até a próxima aventura!");
         } else {
             texto("Lorde Kael ri maliciosamente: 'Patético! Sua fraqueza será sua ruína.'");
@@ -307,6 +307,11 @@ public class Rpg {
             return true;
         } else {
             System.out.println("Resposta errada! O correto era: " + perguntaEscolhida[2]);
+
+            double vidainicial = vidainicial();
+            double porcface = dado();
+            double vidaAtual = autodano(porcface, vidainicial);
+            
             return false;
         }
     }
@@ -338,6 +343,52 @@ public class Rpg {
                 "a"
         });
         // Adicione as outras perguntas aqui, conforme necessário...
+    }
+
+    public static double autodano(double porcface, double vidainicial) {
+        double dano = 3;
+
+        double danoefetivo = porcface * dano;
+        double vidaatual = vidainicial - danoefetivo;
+
+        System.out.println("porcentagem de dano: " + (porcface * 100) + "% e recebeu " + danoefetivo + " de dano.");
+        System.out.println("Sua vida atual é: " + vidaatual);
+
+        return vidaatual;
+    }
+
+    public static double vidainicial() {
+        return 4;
+    }
+
+    public static double dado() {
+        int face;
+        Random aleatorio = new Random();
+        double porcface = 0;
+
+        for (int i = 1; i <= 1; i++) {
+            System.out.println("Você errou a pergunta, agora sofrerá as consequências. Rode o dado");
+            System.out.println("Lançando o dado... ");
+            face = aleatorio.nextInt(6) + 1; // Sorteia um número de 1 a 6
+            System.out.println("Você tirou o dado: " + face);
+
+            if (face == 1) {
+                porcface = 0.16;
+            } else if (face == 2) {
+                porcface = 0.33;
+            } else if (face == 3) {
+                porcface = 0.5;
+            } else if (face == 4) {
+                porcface = 0.66;
+            } else if (face == 5) {
+                porcface = 0.83;
+            } else if (face == 6) {
+                porcface = 1;
+            }
+
+        }
+
+        return porcface;
     }
 
     private static void Instrução() {
