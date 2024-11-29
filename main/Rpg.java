@@ -92,7 +92,23 @@ public class Rpg {
         entrada.close();
     }
 
+    
+    public static void limparTela() {
+        // Dependendo do sistema operacional, o comando pode ser diferente
+        String sistema = System.getProperty("os.name");
+
+        try {
+            if (sistema.contains("Windows")) {
+                // Comando para limpar a tela no Windows
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private static void jogo(Scanner entrada) throws InterruptedException {
+        limparTela();
         texto("         LAMINA DOS DESAFIOS         ");
 
         criarPersonagem(entrada);
@@ -119,6 +135,8 @@ public class Rpg {
             System.out.println("Digite o nome novamente: ");
             nomeRPG = entrada.next();
         }
+
+        limparTela();
 
         String opcGenero;
         do {
@@ -148,6 +166,8 @@ public class Rpg {
             opcGenero = entrada.next();
         }
 
+        limparTela();
+
         String opcClasse;
         do {
             System.out.println("Escolha a classe do seu personagem: ");
@@ -176,8 +196,10 @@ public class Rpg {
             opcClasse = entrada.next();
         }
 
+        limparTela();
+
         System.out.println("Personagem criado com sucesso!");
-        System.out.println("Nome: " + nomeRPG + " Gênero: " + generoRPG + " Classe: " + classeRPG);
+        System.out.println("Nome: " + nomeRPG + "\n" + "Gênero: " + generoRPG + "\n" + "Classe: " + classeRPG + "\n");
     }
 
     public static void texto(String texto) {
@@ -193,7 +215,7 @@ public class Rpg {
     }
 
     public static void FlorestaDasAlmas(Scanner entrada) throws InterruptedException {
-        texto("FlorestaDasAlmas");
+        texto("Floresta Das Almas \n");
 
         texto("Você se aventura na sombria Floresta das Almas...");
         texto("Uma caveira misteriosa aparece na sua frente, bloqueando seu caminho!");
@@ -211,17 +233,19 @@ public class Rpg {
             texto("A caveira se enfurece. Agora você pertence à Floresta das Almas!");
             texto("Você sente sua vida se esvaindo... Game Over.");
         }
+        
     }
 
     public static void CavernaDoFogo(Scanner entrada) throws InterruptedException {
-        texto("CavernaDoFogo");
+        limparTela();
+        texto("Caverna Do Fogo \n");
 
         texto("Você entra na Caverna do Fogo, onde criaturas flamejantes bloqueiam seu caminho.");
         texto("O solo está coberto de cinzas e brasas, e o ar cheira a enxofre.");
         texto("Rios de lava cortam a paisagem, e rajadas de fogo dançam ao vento, como se quisessem testar sua coragem.");
         texto("Você sente que cada passo é observado por algo maligno escondido nas chamas.");
         texto("Uma voz ecoa pelo ar: 'Bem-vindo, mortal! Para atravessar este inferno, você deve provar seu valor.'");
-        texto("A primeira figura surge das sombras ardentes. Seu nome é Pyron, o Guardião das Chamas Eternas.");
+        texto("A primeira figura surge das sombras ardentes. Seu nome é Pyron, o Guardião das Chamas Eternas. \n");
 
         if (perguntaCenario(entrada)) {
             texto("Pyron se dissipa em cinzas, liberando seu caminho.");
@@ -229,15 +253,19 @@ public class Rpg {
         } else {
             texto("Pyron exala uma labareda intensa... Você foi queimado! Game Over.");
         }
+        limparTela();
     }
 
     public static void ReinoDaCaveira(Scanner entrada) throws InterruptedException {
+        limparTela();
+        texto("Reino Da Caveira \n");
+
         texto("Após atravessar a Caverna do Fogo, você chega a um lugar ainda mais aterrorizante...");
         texto("Bem-vindo ao Reino da Caveira.");
         texto("Esse reino é governado pela escuridão, onde os mortos sussurram seus segredos e os vivos raramente sobrevivem.");
         texto("A névoa que cobre o chão parece sussurrar seu nome. Você sente que apenas os mais inteligentes e corajosos conseguem sair daqui com vida.");
         texto("Uma voz profunda e sombria ecoa no ar: 'Aventureiro, sua jornada está longe de terminar. Enfrente nossos desafios, ou junte-se a nós para sempre...'");
-        texto("Você encontra Karron, o Esqueleto do Portal.");
+        texto("Você encontra Karron, o Esqueleto do Portal. \n");
 
         if (perguntaCenario(entrada)) {
             texto("Karron abre o portal para você prosseguir.");
@@ -245,16 +273,20 @@ public class Rpg {
         } else {
             texto("Karron ri enquanto o portal se fecha. Game Over.");
         }
+       
     }
 
     public static void ReinoDasSombrasDeNoxis(Scanner entrada) throws InterruptedException {
+        limparTela();
+        texto("Reino Das Sombras De Noxis \n");
+
         texto("Você entrou no Reino das Sombras de Noxis, onde a escuridão domina e a luz quase não existe...");
         texto("Este reino é habitado por criaturas feitas de pura sombra, e os ecos de almas perdidas sussurram segredos antigos.");
         texto("Ao caminhar, você percebe que o ambiente muda. As sombras parecem ganhar vida, tentando puxar você para o vazio.");
         texto("De repente, surge uma presença poderosa e aterrorizante...");
         texto("Uma voz grave ecoa na escuridão: 'Aventureiro ousado, você ousa desafiar o poder das sombras?'");
         texto("Das trevas surge Noxis, o Mestre das Sombras Eternas, empunhando uma lâmina negra que parece absorver toda a luz ao redor.");
-        texto("Noxis aponta sua lâmina para você e diz: 'Se deseja passar por este reino, prove ser digno enfrentando meu enigma.'");
+        texto("Noxis aponta sua lâmina para você e diz: 'Se deseja passar por este reino, prove ser digno enfrentando meu enigma.' \n");
 
         if (perguntaCenario(entrada)) {
             texto("Você respondeu corretamente ao enigma de Noxis! Ele dá um passo para trás, permitindo que você passe.");
@@ -263,9 +295,12 @@ public class Rpg {
         } else {
             texto("Você falhou e as sombras de Noxis te engolem completamente! Game Over.");
         }
+
     }
 
     public static void BatalhaFinalContraLordeKael(Scanner entrada) throws InterruptedException {
+        limparTela();
+        texto("Batalha Final Contra Lorde Kael \n");
 
         texto("Você atravessa o portal deixado por Noxis e chega ao salão final...");
         texto("O lugar é dominado por um céu vermelho-sangue, e trovões ecoam ao longe.");
@@ -273,7 +308,7 @@ public class Rpg {
         texto("Sentado no trono está Lorde Kael, o Tirano das Trevas, com um olhar penetrante e uma aura de puro poder.");
         texto("Lorde Kael se levanta lentamente, empunhando uma espada flamejante que parece irradiar energia destrutiva.");
         texto("Ele diz com uma voz profunda e ameaçadora: 'Aventureiro... Você chegou até aqui, mas sua jornada termina agora.'");
-        texto("Ele ergue sua espada e o desafia: 'Se você deseja derrotar-me, prove sua sabedoria e força! Responda ao meu enigma.'");
+        texto("Ele ergue sua espada e o desafia: 'Se você deseja derrotar-me, prove sua sabedoria e força! Responda ao meu enigma.' \n");
 
         if (perguntaCenario(entrada)) {
             texto("Lorde Kael cai de joelhos, surpreso com sua vitória.");
