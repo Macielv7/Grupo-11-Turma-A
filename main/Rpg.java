@@ -432,7 +432,13 @@ public class Rpg {
 
         texto("Em um mundo onde reinos batalham pelo poder, uma espada lendária, a Lâmina dos Desafios, foi quebrada em fragmentos e escondida. No pacífico Vilarejo da Felicidade, um jovem guerreiro vê sua casa destruída por um reino inimigo em busca desses fragmentos. Sobrevivendo ao ataque, ele jura recuperar a honra de seu vilarejo. \n");
         texto("Para reunir os fragmentos da espada e derrotar o reino inimigo, ele precisará atravessar quatro reinos traiçoeiros: Montanhas da Sombra, Reino do Fogo, Floresta Sombria e Reino da Caveira, enfrentando desafios e monstros em cada um. Com todos os fragmentos reunidos, ele retornará ao seu vilarejo para enfrentamento final, onde a coragem e a esperança serão testadas. \n");
-        texto("A aventura épica começa. O destino do vilarejo está nas suas mãos.");
+        texto("A aventura épica começa. O destino do vilarejo está nas suas mãos. \n");
+        
+        texto("Temos um sistema simples onde o jogador, ao errar uma pergunta, recebe um dano baseado no resultado de um dado. \n");
+        texto("O jogador começa com uma vida inicial de 4 ");
+        texto("O jogador então erra uma pergunta e precisa rodar o dado. O número tirado no dado determina a porcentagem de dano que ele receberá.");
+        texto("O dano que o jogador recebe com base na porcentagem obtida pelo dado e a vida inicial.");
+        texto("O sistema exibe a porcentagem de dano e a vida restante do jogador após o impacto do dano.");
     }
 
     private static void creditos() {
