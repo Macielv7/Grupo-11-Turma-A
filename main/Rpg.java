@@ -15,6 +15,7 @@ public class Rpg {
         Scanner entrada = new Scanner(System.in);
 
         int opcao;
+        limparTela();
 
         System.out.println("A lâmina dos Desafios!");
 
@@ -92,7 +93,6 @@ public class Rpg {
         entrada.close();
     }
 
-    
     public static void limparTela() {
         // Dependendo do sistema operacional, o comando pode ser diferente
         String sistema = System.getProperty("os.name");
@@ -233,7 +233,7 @@ public class Rpg {
             texto("A caveira se enfurece. Agora você pertence à Floresta das Almas!");
             texto("Você sente sua vida se esvaindo... Game Over.");
         }
-        
+
     }
 
     public static void CavernaDoFogo(Scanner entrada) throws InterruptedException {
@@ -273,7 +273,7 @@ public class Rpg {
         } else {
             texto("Karron ri enquanto o portal se fecha. Game Over.");
         }
-       
+
     }
 
     public static void ReinoDasSombrasDeNoxis(Scanner entrada) throws InterruptedException {
@@ -346,7 +346,7 @@ public class Rpg {
             double vidainicial = vidainicial();
             double porcface = dado();
             double vidaAtual = autodano(porcface, vidainicial);
-            
+
             return false;
         }
     }
@@ -427,14 +427,22 @@ public class Rpg {
     }
 
     private static void Instrução() {
-        System.out.println("");
+        limparTela();
+        texto("A LAMINA DOS DESAFIOS \n");
+
+        texto("Em um mundo onde reinos batalham pelo poder, uma espada lendária, a Lâmina dos Desafios, foi quebrada em fragmentos e escondida. No pacífico Vilarejo da Felicidade, um jovem guerreiro vê sua casa destruída por um reino inimigo em busca desses fragmentos. Sobrevivendo ao ataque, ele jura recuperar a honra de seu vilarejo. \n");
+        texto("Para reunir os fragmentos da espada e derrotar o reino inimigo, ele precisará atravessar quatro reinos traiçoeiros: Montanhas da Sombra, Reino do Fogo, Floresta Sombria e Reino da Caveira, enfrentando desafios e monstros em cada um. Com todos os fragmentos reunidos, ele retornará ao seu vilarejo para enfrentamento final, onde a coragem e a esperança serão testadas. \n");
+        texto("A aventura épica começa. O destino do vilarejo está nas suas mãos.");
     }
 
     private static void creditos() {
-        System.out.println("Desenvolvido por Guilherme Rossi dos Santos.");
-        System.out.println("Desenvolvido por Luan de Siqueira Oliveira.");
-        System.out.println("Desenvolvido por Lucas Gabriel da Silva.");
-        System.out.println("Desenvolvido por Maciel Vinicius da costa.");
+        limparTela();
+        texto("Equipe de Produção: \n");
+
+        texto("Coordenadores do Projeto: \n Marciel Vinicius da costa ,\n Lucas Gabriel da Silva ,\n Guilherme Rossi dos Santos , \n Luan de Siqueira Oliveira  \n");
+        texto("Roteiro e História: \n Guilherme Rossi dos Santos, \n Luan de Siqueira Oliveira \n");
+        texto("Desenvolvedores do Sistemas: \n Marciel Vinicius da costa, \n Lucas Gabriel da Silva \n");
+        texto("Testes e Qualidade: \n Marciel Vinicius da costa, \n Lucas Gabriel da Silva \n");
     }
 
     private static void sair() {
